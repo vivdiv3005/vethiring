@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IIMB BMPDO-05 | Talent Intelligence Assistant</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      background: #0a0a0a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .badge {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #6c5ce7;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    p {
+      color: #888;
+      font-size: 1rem;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="badge">IIMB Bengaluru · Cohort 05</div>
+  <h1>Talent Intelligence Assistant</h1>
+  <p>Helping recruiters discover high-potential Armed Forces professionals transitioning into corporate careers.</p>
+
+  <div id="cometChatMount"></div>
+  <script type="module">
+    const COMETCHAT_WIDGET_CONFIG = {
+      appID: "1678722f7912193e5",
+      region: "in",
+      mode: "guest",
+      authKey: "1109c27e9026b41f371b82fec3cc50968fa81b4e",
+      user: {
+        name: "Guest User",
+        avatar: "",
+        link: ""
+      },
+      mount: "#cometChatMount",
+      width: "700px",
+      height: "600px",
+      isDocked: true,
+      chatType: "user",
+      defaultChatID: "3e58e1c1-9fba-4d05-a8f7-890008ba1f0b",
+      variantID: "6a0192ad130bd98e16457f81",
+    };
+    CometChatApp.CometChatAuth.start(COMETCHAT_WIDGET_CONFIG);
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@cometchat/chat-embed@1.x.x/dist/main.js"></script>
+
+</body>
+</html>
