@@ -37,6 +37,15 @@
       font-size: 1rem;
       max-width: 480px;
       line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    #cometChatMount {
+      width: 700px;
+      max-width: 100%;
+      height: 600px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(108, 92, 231, 0.3);
     }
   </style>
 </head>
@@ -47,28 +56,37 @@
   <p>Helping recruiters discover high-potential Armed Forces professionals transitioning into corporate careers.</p>
 
   <div id="cometChatMount"></div>
-  <script type="module">
-    const COMETCHAT_WIDGET_CONFIG = {
-      appID: "1678722f7912193e5",
-      region: "in",
-      mode: "guest",
-      authKey: "1109c27e9026b41f371b82fec3cc50968fa81b4e",
-      user: {
-        name: "Guest User",
-        avatar: "",
-        link: ""
-      },
-      mount: "#cometChatMount",
-      width: "700px",
-      height: "600px",
-      isDocked: true,
-      chatType: "user",
-      defaultChatID: "3e58e1c1-9fba-4d05-a8f7-890008ba1f0b",
-      variantID: "6a0192ad130bd98e16457f81",
-    };
-    CometChatApp.CometChatAuth.start(COMETCHAT_WIDGET_CONFIG);
-  </script>
+
   <script defer src="https://cdn.jsdelivr.net/npm/@cometchat/chat-embed@1.x.x/dist/main.js"></script>
+  <script>
+    window.addEventListener('load', function() {
+      const COMETCHAT_WIDGET_CONFIG = {
+        appID: "1678722f7912193e5",
+        region: "in",
+        mode: "guest",
+        authKey: "1109c27e9026b41f371b82fec3cc50968fa81b4e",
+        user: {
+          name: "Guest User",
+          avatar: "",
+          link: ""
+        },
+        mount: "#cometChatMount",
+        width: "700px",
+        height: "600px",
+        isDocked: false,
+        chatType: "user",
+        defaultChatID: "3e58e1c1-9fba-4d05-a8f7-890008ba1f0b",
+        variantID: "6a0192ad130bd98e16457f81",
+      };
+      if (typeof CometChatApp !== 'undefined') {
+        CometChatApp.CometChatAuth.start(COMETCHAT_WIDGET_CONFIG);
+      } else {
+        document.addEventListener('cometchat-ready', function() {
+          CometChatApp.CometChatAuth.start(COMETCHAT_WIDGET_CONFIG);
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
